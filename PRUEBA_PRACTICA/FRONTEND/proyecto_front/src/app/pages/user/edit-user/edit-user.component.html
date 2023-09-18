@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5 align-self-center" style="display: flex;">
+      <form [formGroup]="formulario" (ngSubmit)="save()" class="border p-3 form" enctype="multipart/form-data">
+        <div style="width: 100%;text-align: center;">
+          <span style="font-size: 25px;">
+            Usuario
+          </span>
+        </div>
+        <div class="form-group mb-3">
+          <label for="firstName" style="font-weight: bold;">Nombre:</label>
+          <input [(ngModel)]="user.firstName" type="text" name="firstName"
+            id="firstName" class="form-control" formControlName="firstName">
+          <small class="text-danger"
+            *ngIf="formulario.get('firstName')?.errors?.['required'] && formulario.get('firstName')?.touched">Complete
+            este
+            campo</small>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="lastName" style="font-weight: bold;">Apellido:</label>
+          <input [(ngModel)]="user.lastName" type="text" name="lastName"
+            id="lastName" class="form-control" formControlName="lastName">
+          <small class="text-danger"
+            *ngIf="formulario.get('lastName')?.errors?.['required'] && formulario.get('lastName')?.touched">Complete
+            este
+            campo</small>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="age" style="font-weight: bold;">Edad:</label>
+          <input [(ngModel)]="user.age" type="number" name="age"
+            id="age" class="form-control" formControlName="age">
+          <small class="text-danger"
+            *ngIf="formulario.get('age')?.errors?.['required'] && formulario.get('age')?.touched">Complete
+            este
+            campo</small>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="email" style="font-weight: bold;">Email:</label>
+          <input [(ngModel)]="user.email" type="text" name="email"
+            id="email" class="form-control" formControlName="email">
+          <small class="text-danger"
+            *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">Complete
+            este
+            campo</small>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="password" style="font-weight: bold;">Password:</label>
+          <input [(ngModel)]="user.password" type="password" name="password"
+            id="password" class="form-control" formControlName="password">
+          <small class="text-danger"
+            *ngIf="formulario.get('password')?.errors?.['required'] && formulario.get('password')?.touched">Complete
+            este
+            campo</small>
+        </div>
+
+        <div *ngIf="user.image">
+          <img src={{user.image}} width="100px">
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="image">Ingrese el Link de la imagen:</label>
+          <input [(ngModel)]="user.image" type="text" name="image"
+            id="image" class="form-control" formControlName="image">
+          <small class="text-danger"
+            *ngIf="formulario.get('image')?.errors?.['required'] && formulario.get('image')?.touched">Complete
+            este
+            campo</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-sm form-control" [disabled]="formulario.invalid">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5 align-self-center" style="display: flex;">
+      <form [formGroup]="formulario" (ngSubmit)="save()" class="border p-3 form">
+        <div style="width: 100%;text-align: center;">
+          <span style="font-size: 25px;">
+            Editar Datos de Cita
+          </span>
+        </div>
+        <div class="form-group mb-3">
+          <label for="datetimeAppointment" style="font-weight: bold;">Fecha de Agendación:</label>
+          <input [(ngModel)]="appointmentRS.dateTime" type="datetime-local" name="dateTimeAppointment"
+            id="dateTimeAppointment" class="form-control" formControlName="dateTimeAppointment">
+          <small class="text-danger"
+            *ngIf="formulario.get('dateTimeAppointment')?.errors?.['required'] && formulario.get('dateTimeAppointment')?.touched">Complete
+            este
+            campo</small>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="speciality" style="font-weight: bold;">Especialidad:</label>
+          <select class="form-select" formControlName="speciality" id="speciality" [(ngModel)]="appointmentRS.specialty">
+            <option [value]="speciality" *ngFor="let speciality of comboSpecialty" [selected]="speciality === appointmentRS.specialty">
+              {{speciality}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="speciality" style="font-weight: bold;">Observación:</label>
+          <input [(ngModel)]="appointmentRS.observation" type="text" name="observation" id="observation"
+            class="form-control" formControlName="observation">
+          <small class="text-danger"
+            *ngIf="formulario.get('observation')?.errors?.['required'] && formulario.get('observation')?.touched">Complete
+            este campo</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-sm form-control" [disabled]="formulario.invalid">Actualizar</button>
+      </form>
+    </div>
+  </div>
+</div>

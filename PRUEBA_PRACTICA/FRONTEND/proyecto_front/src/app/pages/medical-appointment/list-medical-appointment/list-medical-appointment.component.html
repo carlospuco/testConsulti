@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h2 style="text-align: center;">Citas Médicas</h2>
+  <button class="btn btn-secondary btn-sm" (click)="navigateCreateAppointment()" style="margin-bottom:10px;">Registrar una nueva cita</button>
+  <div class="table-responsive">
+    <table class="table table-hover text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Usuario</th>
+          <th>Fecha y Hora</th>
+          <th>Especialidad</th>
+          <th>Observación</th>
+          <th># Cita</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointmentsResponse">
+          <td>{{ appointment.user!.firstName + " " + appointment.user!.lastName}}</td>
+          <td>{{ appointment.dateTime | date:"short":'+00:00'}}</td>
+          <td>{{ appointment.specialty }}</td>
+          <td>{{ appointment.observation }}</td>
+          <td>{{ appointment.appointmentNumber }}</td>
+          <td>
+            <button (click)="editAppointment(appointment)" class="btn btn-warning btn-sm">Editar</button> &nbsp;
+            <button (click)="deleteAppointment(appointment)" class="btn btn-danger btn-sm">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

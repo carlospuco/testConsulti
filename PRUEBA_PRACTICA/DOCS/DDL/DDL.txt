@@ -1,0 +1,34 @@
+BEGIN;
+
+
+CREATE TABLE IF NOT EXISTS public.appointment
+(
+    id bigint NOT NULL DEFAULT nextval('appointment_id_seq'::regclass),
+    appointment_number character varying(255) COLLATE pg_catalog."default",
+    date_time timestamp(6) without time zone,
+    observation character varying(255) COLLATE pg_catalog."default",
+    specialty character varying(255) COLLATE pg_catalog."default",
+    user_id bigint,
+    CONSTRAINT appointment_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+    id bigint NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+    age integer NOT NULL,
+    email character varying(255) COLLATE pg_catalog."default",
+    first_name character varying(255) COLLATE pg_catalog."default",
+    image character varying(255) COLLATE pg_catalog."default",
+    last_name character varying(255) COLLATE pg_catalog."default",
+    password character varying(255) COLLATE pg_catalog."default",
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT uk_6dotkott2kjsp8vw4d0m25fb7 UNIQUE (email)
+);
+
+ALTER TABLE IF EXISTS public.appointment
+    ADD CONSTRAINT fk7bo52i6usixwb7ira9l16y3bu FOREIGN KEY (user_id)
+    REFERENCES public.users (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+END;

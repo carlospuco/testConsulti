@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "64560d3a-b31d-4aad-aac5-fab118ab7d1b",
+		"name": "CitasCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27900440",
+		"_collection_link": "https://usnack-dev.postman.co/workspace/USnack~212236f6-3639-4deb-923e-818f782f5665/collection/27900440-64560d3a-b31d-4aad-aac5-fab118ab7d1b?action=share&source=collection_link&creator=27900440"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getUserByEmail",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Juan\",\r\n  \"lastName\": \"Vazque\",\r\n  \"age\": 30,\r\n  \"email\": \"nuevoemail@example.com\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Omar\",\r\n  \"lastName\": \"Mejia\",\r\n  \"age\": 30,\r\n  \"password\":\"12345\",\r\n  \"email\": \"rshawe2@51.la\",\r\n  \"image\": \"nuevaimagen.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appoiment",
+			"item": [
+				{
+					"name": "NewAppoiment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userEmail\": \"usuario@example.com\",\r\n  \"dateTime\": \"2023-09-20T10:30:00Z\",\r\n  \"specialty\": \"Medicina General\",\r\n  \"observation\": \"Consulta de rutina\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
